@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "HUGE DUMP!"
+
+exit 0
