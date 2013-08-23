@@ -1,43 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative 'lib/fur/init'
-require_relative 'lib/fur/store'
-require_relative 'lib/fur/back'
-require_relative 'lib/fur/forward'
-require_relative 'lib/fur/status'
-
-module Fur
-  def self.run
-    if command
-      send command
-    else
-      puts "Fur is a version control system for mammals"
-    end
-  end
-
-  def self.command
-    ARGV.first
-  end
-
-  def self.init
-    Init.new.run
-  end
-
-  def self.store
-    Store.new.run
-  end
-
-  def self.back
-    Back.new.run
-  end
-
-  def self.forward
-    Forward.new.run
-  end
-
-  def self.status
-    Status.new.run
-  end
-end
+require_relative 'lib/fur'
 
 Fur.run
