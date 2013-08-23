@@ -1,0 +1,89 @@
+#!/usr/bin/ruby/env ruby
+
+
+# if no arguments, print list of possible commands
+
+
+# Options
+
+# ---init---
+
+  # mkdir .fur
+
+  # mkdir .fur/stash
+  # this is where the previous version of the project files are stored
+
+
+
+  #Is this neccesary?
+  # touch MANIFEST
+  # MANIFEST stores the init state of the project
+
+
+  # mkdir .fur/diffs
+  # this is where the diff text files are stored
+
+  
+  # touch POINTER
+  # this file contains tells us the current place in the timeline  
+
+  
+  # cp ../* to ./stash
+
+  
+  # set POINTER to 0
+
+ 
+  # inform user that fur has been initiated
+
+# ---store--
+
+  # is there a diff between .fur/stash and ../ ?
+
+    # if no exit with "There are no changes to save."
+
+  # if there is a diff, check the POINTER
+ 
+  # create diff of ../ and ./stash and store it at {{ POINTER }}.f
+  # think of .f as "point five"; the numerical position between integral positions
+  # ex1: when storing from position 6 to 7 diff 6.f will be created
+  # ex2: when regressing from position 5 to 4 patch {{ [ POINTER ] -1 }}.f (4.f) will be applied - using patch -R
+
+  # mv ./stash to /tmp/ 
+
+  # cp -r ../* to ./stash/
+
+  # if no errors, rmove /tmp/
+
+  
+  # increment pointer
+
+  
+  # inform user "Fur has stached your project." 
+
+
+# ---back---
+  
+  # does POINTER  === 0?
+
+
+    # if yes, return with "Your project is at its earliest stached state."
+
+
+  # patch -R {{ [ POINTER ] - 1 }}.f to ./stash 
+
+  # cp -r ./stash/* ../
+
+  # decrement POINTER
+
+  # return "Fur has moved you project back in time."
+
+
+
+
+# ---forward---
+
+
+# ---status---
+
+
