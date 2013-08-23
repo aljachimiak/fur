@@ -1,6 +1,13 @@
+require_relative 'stachable'
+require_relative 'file_overwritable'
+
 module Fur
   class Init
+    include FileOverwritable
+    include Stachable
+
     README_MESSAGE = 'TODO: write some things in this file that describe your project.'
+
     def run
       if Dir.exists? '.fur'
         puts 'Repository already initialized.'
@@ -37,17 +44,7 @@ module Fur
       overwrite_on_file '0', '.fur/pointer'
     end
 
-    def copy_working_dir_to_stache
-      `cp -R ./* .fur/stache/`
-    end
-
     private
-
-    def overwrite_on_file string, filename
-      file = File.new filename, 'w+'
-      file.write string
-      file.close
-    end
 
     def mkdir dir
       Dir.mkdir dir

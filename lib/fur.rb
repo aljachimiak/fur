@@ -22,7 +22,7 @@ module Fur
   end
 
   def self.store
-    Store.new.run
+    Store.create.run
   end
 
   def self.back
