@@ -15,7 +15,7 @@ module Fur
 
     class Null
       def run
-        puts "Cannot move back when pointer is at 0"
+        puts "Cannot move back: project is at initial version"
       end
     end
   end

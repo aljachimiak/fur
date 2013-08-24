@@ -36,7 +36,7 @@ module Fur
   end
 
   def self.forward
-    Forward.new.run
+    Forward.create.run
   end
 
   def self.status
