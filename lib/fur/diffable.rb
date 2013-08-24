@@ -10,5 +10,9 @@ module Fur
     def diff_between_stache_and_working_dir_command
       DIFF_BETWEEN_STACHE_AND_WORKING_DIR_COMMAND
     end
+
+    def number_of_diffs
+      Dir.entries('.fur/diffs').length - 2
+    end
   end
 end

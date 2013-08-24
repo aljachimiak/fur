@@ -4,6 +4,7 @@ require_relative 'fur/restore'
 require_relative 'fur/back'
 require_relative 'fur/forward'
 require_relative 'fur/status'
+require_relative 'fur/help'
 
 module Fur
   def self.run
@@ -41,4 +42,9 @@ module Fur
   def self.status
     Status.new.run
   end
+
+  def self.help
+    Help.new.run
+  end
+ 
 end
