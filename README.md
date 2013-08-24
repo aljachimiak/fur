@@ -12,6 +12,9 @@ You will need to have [Vagrant](http://vagrantup.com) installed.
 
 Using `vagrant up` should give bring up a Fedora 19 box.  The box has been configured to add your project folder to the `$PATH` so you can quickly test scripts.
 
+## Thanks!
+A big thank you to [Dave Jachimiak](https://github.com/davejachimiak) for providing the Ruby logic.  This project would not have been possible without his help!
+
 ## Fedora 19?
 Yup.  Because of this:
 ```bash
