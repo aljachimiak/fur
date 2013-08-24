@@ -1,23 +1,22 @@
 require_relative 'diffable'
 require_relative 'patchable'
+require_relative 'interactive_diff'
 
 module Fur
   class Restore
     include Diffable
     include Patchable
 
-    def run
-      if diff_between_stache_and_working_dir.empty?
-        return
-      else
-        puts message = "This will destroy your changes. Continue? [y/n]"
+    def initialize
+      @interactive_diff_options = {
+        when_empty_diff: lambda { return },
+        ask:             "This will destroy your changes. Continue?",
+        when_yes:        lambda { replace_working_dir_with_stache }
+      }
+    end
 
-        until ['y', 'n'].include?(response = $stdin.gets.chomp)
-          puts message
-        end
-	  
-        response == 'y' ? replace_working_dir_with_stache : exit
-      end
+    def run
+      InteractiveDiff.new(@interactive_diff_options).call
     end
 
     def run_with_confirmation
