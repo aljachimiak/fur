@@ -15,6 +15,14 @@ module Fur
       REVERSE_PATCH_COMMAND
     end
 
+    def patch_working_tree
+      patch_working_tree_with patch_command
+    end
+
+    def reverse_patch_working_tree
+      patch_working_tree_with reverse_patch_command
+    end
+
     def patch_working_tree_with strategy
       `#{strategy} < .fur/diffs/#{current_pointer}.f`
     end

@@ -1,6 +1,6 @@
 module Fur
   module Restorable
-    def restore
+    def restore_working_tree
       Restore.new.run
     end
   end
