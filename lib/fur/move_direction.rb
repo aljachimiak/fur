@@ -16,6 +16,8 @@ module Fur
       after_restore
       remove_stache
       copy_working_dir_to_stache
+
+      puts "Your project has been moved #{self.class.name.split('::').last.downcase} to pointer #{current_pointer}"
     end
 
     def after_restore

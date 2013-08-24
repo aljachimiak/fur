@@ -28,7 +28,7 @@ module Fur
   end
 
   def self.restore
-    Restore.new.run
+    Restore.new.run_with_confirmation
   end
 
   def self.back
