@@ -1,16 +1,16 @@
 require_relative 'stachable'
 require_relative 'restore'
-require_relative 'file_overwritable'
+require_relative 'patchable'
+require_relative 'pointable'
 
 module Fur
   class Back
-    include FileOverwritable
     include Stachable
+    include Patchable
+    include Pointable
 
     def initialize
-      @restore          = Restore.new
-      @current_pointer  = File.read '.fur/pointer'
-      @previous_pointer = "#{@current_pointer.to_i - 1}"
+      @restore = Restore.new
     end
 
     def run
@@ -21,12 +21,8 @@ module Fur
       copy_working_dir_to_stache
     end
 
-    def decrement_pointer
-      overwrite_on_file @previous_pointer, '.fur/pointer'
-    end
-
     def patch_working_tree_with_previous_diff
-      `patch -R -p0 < .fur/diffs/#{@previous_pointer}.f`
+      `#{reverse_patch_command} < .fur/diffs/#{current_pointer}.f`
     end
 
     def remove_stache

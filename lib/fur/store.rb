@@ -1,11 +1,13 @@
 require_relative 'stachable'
 require_relative 'file_overwritable'
 require_relative 'diffable'
+require_relative 'pointable'
 
 module Fur
   class Store
     include FileOverwritable
     include Stachable
+    include Pointable
     extend Diffable
 
     def initialize diff
@@ -19,15 +21,11 @@ module Fur
       copy_working_dir_to_stache
       increment_pointer
 
-      puts "Project stored at pointer version #{@new_pointer}."
+      puts "Project stored at pointer version #{current_pointer}."
     end
 
     def store_diff
-      overwrite_on_file @diff, ".fur/diffs/#{@old_pointer}.f"
-    end
-
-    def increment_pointer
-      overwrite_on_file @new_pointer, '.fur/pointer'
+      overwrite_on_file @diff, ".fur/diffs/#{current_pointer}.f"
     end
 
     def self.create
