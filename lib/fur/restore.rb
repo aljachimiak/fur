@@ -7,7 +7,9 @@ module Fur
     include Patchable
 
     def run
-      unless diff_between_stache_and_working_dir.empty?
+      if diff_between_stache_and_working_dir.empty?
+        return
+      else
         puts message = "This will destroy your changes. Continue? [y/n]"
 
         until ['y', 'n'].include?(response = $stdin.gets.chomp)
