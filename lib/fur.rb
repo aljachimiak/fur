@@ -1,5 +1,6 @@
 require_relative 'fur/init'
 require_relative 'fur/store'
+require_relative 'fur/restore'
 require_relative 'fur/back'
 require_relative 'fur/forward'
 require_relative 'fur/status'
@@ -23,6 +24,10 @@ module Fur
 
   def self.store
     Store.create.run
+  end
+
+  def self.restore
+    Restore.new.run
   end
 
   def self.back

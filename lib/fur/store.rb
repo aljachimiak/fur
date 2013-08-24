@@ -1,10 +1,12 @@
 require_relative 'stachable'
 require_relative 'file_overwritable'
+require_relative 'diffable'
 
 module Fur
   class Store
     include FileOverwritable
     include Stachable
+    extend Diffable
 
     def initialize diff
       @diff        = diff
@@ -29,7 +31,7 @@ module Fur
     end
 
     def self.create
-      diff = `diff -ruN --exclude=.fur .fur/stache/ .`
+      diff = diff_between_stache_and_working_dir
       diff.empty? ? Fur::Store::Null.new : new(diff)
     end
 
