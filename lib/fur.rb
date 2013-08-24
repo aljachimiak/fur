@@ -32,7 +32,7 @@ module Fur
   end
 
   def self.back
-    Back.new.run
+    Back.create.run
   end
 
   def self.forward
@@ -46,5 +46,4 @@ module Fur
   def self.help
     Help.new.run
   end
- 
 end
