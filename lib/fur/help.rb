@@ -1,9 +1,9 @@
-
 module Fur
   class Help 
 
     def run
-      puts "Some help text."  
+      help_file = File.dirname(__FILE__)+"/help.txt"
+      puts File.read(help_file)
     end
   end
 end

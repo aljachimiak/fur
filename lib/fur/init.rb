@@ -10,7 +10,7 @@ module Fur
 
     def run
       if Dir.exists? '.fur'
-        puts 'Repository already initialized.'
+        puts 'Repository already initialized'
       else
         create_readme
         create_fur_dir
@@ -19,7 +19,7 @@ module Fur
         create_initial_pointer
         copy_working_dir_to_stache
       
-        puts 'Repository initialized in .fur.'
+        puts 'Repository initialized in .fur'
       end
     end
 

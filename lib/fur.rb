@@ -12,6 +12,7 @@ module Fur
       send command
     else
       puts "Fur is a version control system for mammals"
+      puts "Run `fur help` for commands"
     end
   end
 

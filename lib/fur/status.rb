@@ -17,7 +17,7 @@ module Fur
 
     def run
       if current_pointer.to_i > 0
-        puts "Your fur pointer is at #{current_pointer} of #{number_of_diffs}."
+        puts "Your fur pointer is at #{current_pointer} of #{number_of_diffs}"
       else
         puts "Your fur pointer is at pointer 0"
       end
