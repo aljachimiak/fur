@@ -7,7 +7,18 @@ Fur has been named as a letter translation from git.  If you take a look your ke
 
 This is a nod to the [often mistaken](http://en.wikipedia.org/wiki/HAL_9000#Origin_of_name) origin of the name for HAL 9000.
 
+## What is it?
+````
+Fur is a version control system for mammals
+````
+Fur is a *very* simple version control system for individuals.  It is meant to introduce the concept of version control and practice a workflow that incorparates version control.
+
 ## Getting Started
+
+First: clone this repo into a directory
+
+Second: add the directory with this repo to your $PATH
+
 Run `fur help` for a list of commands available
 
 ## Thanks!
